@@ -12,6 +12,7 @@ import numpy as np
 import tensorflow
 
 import gensim
+import gensim.downloader as api
 import transformers 
 
 from typing import List
@@ -43,7 +44,7 @@ def wn_simple_lesk_predictor(context : Context) -> str:
 class Word2VecSubst(object):
         
     def __init__(self, filename):
-        self.model = gensim.models.KeyedVectors.load_word2vec_format(filename, binary=True)    
+        self.model = api.load('word2vec-google-news-300')
 
     def predict_nearest(self,context : Context) -> str:
         return None # replace for part 4
